@@ -1,6 +1,6 @@
 const express = require ('express');
 const { getConnection } = require ('./bd/db-conection-mongo');
-getConnection ();
+const cors = require('cors')
 
 const app = express ();
 const port = 3000;
