@@ -23,7 +23,7 @@ const TipoEquipoSchema = Schema ({
         type: Date,
         required: true,
 
-    },
+    }
     
 
 });

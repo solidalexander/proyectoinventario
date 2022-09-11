@@ -1,9 +1,9 @@
 const{ Router } = require('express');
 const router = Router ();
-const Usuario = require ('../modelo/Usuario');
+const Usuario = require('../Modelo/Usuario');
 
 
-router.post('/:usuarioId', async function(req, res){
+router.post('/', async function(req, res){
 
     try{
         console.log('objeto recibido', req.body);
@@ -11,7 +11,7 @@ router.post('/:usuarioId', async function(req, res){
         const existeUsuario = await Usuario.findOne({ email: req.body.email });
         console.log('Respuesta existe Usuario', existeUsuario);
         if (existeUsuario) {
-            return res.send('email ya existe');
+            return res.send('Email ya existe');
         }
 
         let usuario = new Usuario();
@@ -20,8 +20,8 @@ router.post('/:usuarioId', async function(req, res){
         usuario.estado = req.body.estado;
         usuario.fechaCreacion = new Date();
         usuario.fechaActualizacion = new Date();
-       
-        
+
+
         usuario = await usuario.save();
 
         res.send(usuario);
@@ -32,10 +32,10 @@ router.post('/:usuarioId', async function(req, res){
         res.send('Ocurrio un error');
 
     }
-        
+
 });
 
-router.get('/:usuarioId', async function(req, res){
+router.get('/', async function(req, res){
     try {
         const usuario = await Usuario.find();
         res.send(usuario);
@@ -44,7 +44,7 @@ router.get('/:usuarioId', async function(req, res){
         console.log(error);
         res.send('Ocurrio un error');
     }
- 
+
 });
 
 router.put('/:usuarioId', async function(req, res){
@@ -58,10 +58,10 @@ router.put('/:usuarioId', async function(req, res){
         }
 
         const existeUsuario = await Usuario
-                .findOne({ email: req.body.email, _Id: { $ne: usuario._Id } });
+                .findOne({ email: req.body.email, _id: { $ne: usuario._id } });
 
         console.log('Respuesta existe usuario', existeUsuario);
-        
+
         if (existeUsuario){
             return res.send('Email ya existe');
         }
@@ -79,8 +79,9 @@ router.put('/:usuarioId', async function(req, res){
         console.log(error);
         res.send('Ocurrio un error');
     }
-    
- 
+
+
 });
+
 
 module.exports = router;

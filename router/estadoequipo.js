@@ -1,15 +1,13 @@
 const { Router} = require('express');
-
+const EstadoEquipo = require ('../Modelo/EstadoEquipo');
 const router = Router();
-const EstadoEquipo = require ('../modelo/EstadoEquipo');
-
 
 router.get('/', async function(req, res){
     try{
         const tipos = await EstadoEquipo.find();
         res.send(tipos)
-      
-        
+
+
     } catch(error){
         console.log(error);
         res.send('Ocurrio un error');
@@ -19,40 +17,40 @@ router.get('/', async function(req, res){
 router.post('/', async function(req, res){
     try{
         let estadoEquipo = new EstadoEquipo();
-    
-        estadoequipo.nombre = req.body.nombre;
-        estadoequipo.estado = req.body.estado;
-        estadoequipo.fechaCreacion = new Date();
-        estadoequipo.fechaActualizacion = new Date();
-        estadoequipo = await estadoequipo.save();
+
+        estadoEquipo.nombre = req.body.nombre;
+        estadoEquipo.estado = req.body.estado;
+        estadoEquipo.fechaCreacion = new Date();
+        estadoEquipo.fechaActualizacion = new Date();
+        estadoEquipo = await estadoEquipo.save();
         res.send(estadoEquipo);
 
     }catch(error){
         console.log(error);
         res.send('Ocurrio un error');
     }
-   
+
 
 });
 
 router.put('/:estadoEquipoId', async function(req, res){
     try{
-        let estadoequipo = await EstadoEquipo.findById(req.params.estadoEquipoId);
-        if(!estadoequipo) {
+        let estadoEquipo = await EstadoEquipo.findById(req.params.estadoEquipoId);
+        if(!estadoEquipo) {
             return res.send('No existe estado');
         }
-    
-        estadoequipo.nombre = req.body.nombre;
-        estadoequipo.estado = req.body.estado;
-        estadoequipo.fechaActualizacion = new Date();
-        estadoequipo = await estadoEquipo.save();
+
+        estadoEquipo.nombre = req.body.nombre;
+        estadoEquipo.estado = req.body.estado;
+        estadoEquipo.fechaActualizacion = new Date();
+        estadoEquipo = await estadoEquipo.save();
         res.send(estadoEquipo);
 
     }catch(error){
         console.log(error);
         res.send('Ocurrio un error');
     }
-   
+
 });
 
 module.exports = router;

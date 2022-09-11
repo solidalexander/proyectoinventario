@@ -27,7 +27,7 @@ const UsuarioSchema = Schema ({
         type: Date,
         required: true,
 
-    },
+    }
     
 
 });

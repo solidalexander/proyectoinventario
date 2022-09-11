@@ -11,7 +11,7 @@ const EstadoEquipoSchema = Schema ({
     estado:   {
         type: String,
         required: true,
-         enum: [ 'activo', 'inactivo'
+         enum: [ 'activo', 'inactivo',
          ]
 
     },
@@ -24,7 +24,7 @@ const EstadoEquipoSchema = Schema ({
         type: Date,
         required: true,
 
-    },
+    }
     
 
 });

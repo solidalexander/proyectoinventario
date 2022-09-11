@@ -11,7 +11,7 @@ const MarcaSchema = Schema ({
         type: String,
         required: true,
          enum: [ 'activo', 
-         'inactivo'
+         'inactivo',
          ]
 
     },
@@ -24,7 +24,7 @@ const MarcaSchema = Schema ({
         type: Date,
         required: true,
 
-    },
+    }
     
 
 });
