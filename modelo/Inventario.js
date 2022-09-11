@@ -42,12 +42,12 @@ const InventarioSchema = Schema ({
         ref:'Marca',
         requerid : true,
     },
-    tipoEquipo: {
+    tipoequipo: {
         type: Schema.Types.ObjectId,
         ref:'TipoEquipo',
         requerid : true,
     },
-    estado: {
+    estadoequipo: {
         type: Schema.Types.ObjectId,
         ref:'EstadoEquipo',
         requerid : true,

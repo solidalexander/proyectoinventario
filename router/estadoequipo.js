@@ -1,7 +1,7 @@
 const { Router} = require('express');
 
 const router = Router();
-const Usuario = require ('../modelo/EstadoEquipo');
+const EstadoEquipo = require ('../modelo/EstadoEquipo');
 
 
 router.get('/', async function(req, res){
@@ -20,11 +20,11 @@ router.post('/', async function(req, res){
     try{
         let estadoEquipo = new EstadoEquipo();
     
-        estadoEquipo.nombre = req.body.nombre;
-        estadoEquipo.estado = req.body.estado;
-        estadoEquipo.fechaCreacion = new Date();
-        estadoEquipo.fechaActualizacion = new Date();
-        estadoEquipo = await estadoEquipo.save();
+        estadoequipo.nombre = req.body.nombre;
+        estadoequipo.estado = req.body.estado;
+        estadoequipo.fechaCreacion = new Date();
+        estadoequipo.fechaActualizacion = new Date();
+        estadoequipo = await estadoequipo.save();
         res.send(estadoEquipo);
 
     }catch(error){
@@ -37,15 +37,15 @@ router.post('/', async function(req, res){
 
 router.put('/:estadoEquipoId', async function(req, res){
     try{
-        let estadoEquipo = await EstadoEquipo.findById(req.params.estadoEquipoId);
-        if(!estadoEquipo) {
+        let estadoequipo = await EstadoEquipo.findById(req.params.estadoEquipoId);
+        if(!estadoequipo) {
             return res.send('No existe estado');
         }
     
-        estadoEquipo.nombre = req.body.nombre;
-        estadoEquipo.estado = req.body.estado;
-        estadoEquipo.fechaActualizacion = new Date();
-        estadoEquipo = await estadoEquipo.save();
+        estadoequipo.nombre = req.body.nombre;
+        estadoequipo.estado = req.body.estado;
+        estadoequipo.fechaActualizacion = new Date();
+        estadoequipo = await estadoEquipo.save();
         res.send(estadoEquipo);
 
     }catch(error){

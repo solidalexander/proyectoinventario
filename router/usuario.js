@@ -3,7 +3,7 @@ const router = Router ();
 const Usuario = require ('../modelo/Usuario');
 
 
-router.post('/', async function(req, res){
+router.post('/:usuarioId', async function(req, res){
 
     try{
         console.log('objeto recibido', req.body);
@@ -11,7 +11,7 @@ router.post('/', async function(req, res){
         const existeUsuario = await Usuario.findOne({ email: req.body.email });
         console.log('Respuesta existe Usuario', existeUsuario);
         if (existeUsuario) {
-            return res.send('Email ya existe');
+            return res.send('email ya existe');
         }
 
         let usuario = new Usuario();
@@ -35,7 +35,7 @@ router.post('/', async function(req, res){
         
 });
 
-router.get('/', async function(req, res){
+router.get('/:usuarioId', async function(req, res){
     try {
         const usuario = await Usuario.find();
         res.send(usuario);
@@ -58,7 +58,7 @@ router.put('/:usuarioId', async function(req, res){
         }
 
         const existeUsuario = await Usuario
-                .findOne({ email: req.body.email, _id: { $ne: usuario._id } });
+                .findOne({ email: req.body.email, _Id: { $ne: usuario._Id } });
 
         console.log('Respuesta existe usuario', existeUsuario);
         

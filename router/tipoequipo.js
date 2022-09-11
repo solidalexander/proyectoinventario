@@ -18,11 +18,11 @@ router.post('/', async function(req, res){
     try{
         let tipoEquipo = new TipoEquipo();
     
-        tipoEquipo.nombre = req.body.nombre;
-        tipoEquipo.estado = req.body.estado;
-        tipoEquipo.fechaCreacion = new Date();
-        tipoEquipo.fechaActualizacion = new Date();
-        tipoEquipo = await tipoEquipo.save();
+        tipoequipo.nombre = req.body.nombre;
+        tipoequipo.estado = req.body.estado;
+        tipoequipo.fechaCreacion = new Date();
+        tipoequipo.fechaActualizacion = new Date();
+        tipoequipo = await tipoEquipo.save();
         res.send(tipoEquipo);
 
     }catch(error){
@@ -32,15 +32,15 @@ router.post('/', async function(req, res){
 
 });
 
-router.put('/:tipoEquipoId', async function(req, res){
+router.put('/:tipoequipoId', async function(req, res){
     try{
-        let tipoEquipo = await TipoEquipo.findById(req.params.tipoEquipoId);
+        let tipoequipo = await Tipoequipo.findById(req.params.tipoequipoId);
     
-        tipoEquipo.nombre = req.body.nombre;
-        tipoEquipo.estado = req.body.estado;
-        tipoEquipo.fechaActualizacion = new Date();
-        tipoEquipo = await tipoEquipo.save();
-        res.send(tipoEquipo);
+        tipoequipo.nombre = req.body.nombre;
+        tipoequipo.estado = req.body.estado;
+        tipoequipo.fechaActualizacion = new Date();
+        tipoequipo = await tipoequipo.save();
+        res.send(tipoequipo);
 
     }catch(error){
         console.log(error);

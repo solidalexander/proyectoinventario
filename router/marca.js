@@ -1,11 +1,11 @@
 const{ Router } = require('express');
 const router = Router ();
-const Marca = require ('../Modelo/Marca');
+const Marca = require ('../modelo/Marca');
 
 router.get('/', async function(req, res){
     try{
-     const marcas = await Marca.find();
-     res.send(marcas);
+     const marca = await Marca.find();
+     res.send(marca);
  
     }catch(error){
      console.log(error);

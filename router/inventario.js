@@ -50,12 +50,12 @@ router.get('/', async  function(req, res){
          inventario.descripcion = req.body.descripcion;
          inventario.foto = req.body.foto;
          inventario.color = req.body.color;
-         inventario.fehaCompra = req.body.fechaCompra;
+         inventario.fechaCompra = req.body.fechaCompra;
          inventario.precio = req.body.preecio;
          inventario.usuario = req.body.usuario._id;
          inventario.marca = req.body.marca._id;
-         inventario.tipoEquipo = req.body.tipoEquipo._id;
-         inventario.estadoEquipo = req.body.estadoEquipo._id;
+         inventario.tipoequipo = req.body.tipoEquipo._id;
+         inventario.estadoequipo = req.body.estadoEquipo._id;
          inventario.fechaCreacion = new Date();
          inventario.fechaActualizacion = new Date();
  
@@ -91,12 +91,12 @@ router.get('/', async  function(req, res){
         inventario.descripcion = req.body.descripcion;
         inventario.foto = req.body.foto;
         inventario.color = req.body.color;
-        inventario.fehaCompra = req.body.fechaCompra;
+        inventario.fechaCompra = req.body.fechaCompra;
         inventario.precio = req.body.preecio;
         inventario.usuario = req.body.usuario._id;
         inventario.marca = req.body.marca._id;
-        inventario.tipoEquipo = req.body.tipoEquipo._id;
-        inventario.estadoEquipo = req.body.estadoEquipo._id;
+        inventario.tipoequipo = req.body.tipoEquipo._id;
+        inventario.estadoequipo = req.body.estadoEquipo._id;
         inventario.fechaActualizacion = new Date();
 
         inventario = await inventario.save();

@@ -1,18 +1,21 @@
 const express = require ('express');
 const { getConnection } = require ('./bd/db-conection-mongo');
-const cors = require('cors')
+const cors = require('cors');
 
 const app = express ();
 const port = 3000;
+
+//implementacion cors
+app.use(cors());
 
 getConnection ();
 
 app.use(express.json());
 
 app.use('/usuario', require('./router/usuario'));
-app.use('/estadoequipo', require('./router/estadoequipo'));
+app.use('/estado-equipo', require('./router/estadoequipo'));
 app.use('/marca', require('./router/marca'));
-app.use('/tipoequipo', require('./router/tipoEquipo'));
+app.use('/tipo-equipo', require('./router/tipoequipo'));
 app.use('/inventario', require('./router/inventario'));
 
 
