@@ -33,7 +33,7 @@ router.post('/', async function(req, res){
 
 });
 
-router.put('/:tipoEquipoId', async function(req, res){
+router.put('/', async function(req, res){
     try{
         let tipoEquipo = await TipoEquipo.findById(req.params.tipoEquipoId);
 
