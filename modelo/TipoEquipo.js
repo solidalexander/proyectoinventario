@@ -10,7 +10,7 @@ const TipoEquipoSchema = Schema ({
     estado:   {
         type: String,
         required: true,
-         enum: [ 'activo', 'inactivo'
+         enum: [ 'activo', 'inactivo',
          ]
 
     },
